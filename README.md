@@ -5,6 +5,8 @@ Interactive visualization of German election polls ("Sonntagsfrage") for the
 institute bias (house effects) — inspired by
 [dkriesel.com/sonntagsfrage](https://www.dkriesel.com/sonntagsfrage).
 
+**Live site: [ch-sc.github.io/pollity](https://ch-sc.github.io/pollity/)**
+
 Data source: [wahlrecht.de](https://www.wahlrecht.de/umfragen/) (federal
 per-institute pages incl. per-legislature archives back to 1998, plus one page
 per Bundesland). ~8,900 polls across 17 regions.

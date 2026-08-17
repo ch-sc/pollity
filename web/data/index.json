@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-08-17T10:43:41Z",
+ "scraped_at": "2026-08-17T12:27:34Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6149,
+   "polls": 6142,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -42,7 +42,6 @@
    "level": "state",
    "polls": 171,
    "institutes": [
-    "-->INSA-->",
     "Allensbach",
     "Customer Research 42",
     "Forsa",
@@ -113,7 +112,6 @@
    "level": "state",
    "polls": 435,
    "institutes": [
-    "-->Forsa-->",
     "Forsa",
     "Forschungsgruppe Wahlen",
     "INFO GmbH",
@@ -143,7 +141,6 @@
    "level": "state",
    "polls": 147,
    "institutes": [
-    "-->Forsa-->",
     "Forsa",
     "Forschungsgruppe Wahlen",
     "GESS",
@@ -211,7 +208,7 @@
     "AMR Düsseldorf",
     "Forsa",
     "Forschungsgruppe Wahlen",
-    "GESS Phone & Field",
+    "GESS",
     "GMS",
     "INSA",
     "Infratest dimap",
@@ -248,7 +245,6 @@
    "level": "state",
    "polls": 133,
    "institutes": [
-    "-->Forsa-->",
     "AMR Düsseldorf",
     "Allensbach",
     "BasisResearch",
@@ -378,7 +374,7 @@
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
-    "GESS Phone & Field",
+    "GESS",
     "INSA",
     "Infratest dimap",
     "Polis",
@@ -407,7 +403,6 @@
    "level": "state",
    "polls": 74,
    "institutes": [
-    "-->INSA-->",
     "Forsa",
     "Forschungsgruppe Wahlen",
     "INSA",
@@ -535,7 +530,7 @@
    "key": "thueringen",
    "name": "Thüringen",
    "level": "state",
-   "polls": 175,
+   "polls": 173,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -548,7 +543,6 @@
     "TU Ilmenau",
     "Uni Jena",
     "Verian (Emnid)",
-    "YouGov, INSA",
     "apropro!",
     "aproxima"
    ],

@@ -112,6 +112,7 @@ INSTITUTE_ALIASES = {
     "allensbach": "Allensbach",
     "ipsos": "Ipsos",
     "gess": "GESS",
+    "gess phone & field": "GESS",
     "polis": "Polis",
     "polis+sinus": "Polis",
     "psephos": "Psephos",
@@ -172,6 +173,9 @@ def fetch(url: str, cache_dir: Path | None) -> str:
 # ---------------------------------------------------------------------------
 
 def strip_tags(fragment: str) -> str:
+    # Comments first: cells may contain commented-out links like
+    # <!--<a href="…">-->Forsa<!--</a>--> whose "-->" would survive tag removal.
+    fragment = re.sub(r"<!--.*?-->", "", fragment, flags=re.S)
     fragment = re.sub(r"<br\s*/?>", " ", fragment, flags=re.I)
     fragment = re.sub(r"<[^>]+>", "", fragment)
     text = htmllib.unescape(fragment)
@@ -182,6 +186,8 @@ def strip_tags(fragment: str) -> str:
 def parse_tables(html: str) -> list[dict]:
     """Return every wilko table as {'headers': [...], 'rows': [[(text, attrs)...]]}."""
     tables = []
+    # Drop comments up front so commented-out rows/links never parse as data.
+    html = re.sub(r"<!--.*?-->", "", html, flags=re.S)
     for tm in re.finditer(r'<table class="wilko".*?</table>', html, re.S):
         thtml = re.sub(r"<tfoot>.*?</tfoot>", "", tm.group(0), flags=re.S)
         thead = re.search(r"<thead>(.*?)</thead>", thtml, re.S)

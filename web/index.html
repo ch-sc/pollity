@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pollity – Sonntagsfrage Bund &amp; Länder</title>
+<meta name="description" content="Interaktive Visualisierung deutscher Wahlumfragen (Bund und Länder) mit Korrektur institutsbedingter Verzerrungen (Hauseffekte). Daten: wahlrecht.de">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>📊</text></svg>">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-left">
+    <h1>Pollity</h1>
+    <span class="subtitle">Sonntagsfrage – Bund &amp; Länder, um Hauseffekte bereinigt</span>
+  </div>
+  <button id="theme-toggle" type="button" title="Hell/Dunkel umschalten" aria-label="Farbschema umschalten">◐</button>
+</header>
+
+<main>
+  <section class="controls" aria-label="Filter">
+    <div class="control-row">
+      <label class="control">
+        <span class="control-label">Ebene</span>
+        <select id="region-select" autocomplete="off"></select>
+      </label>
+      <label class="control">
+        <span class="control-label">Bias-Korrektur</span>
+        <select id="algo-select" autocomplete="off"></select>
+      </label>
+      <div class="control">
+        <span class="control-label">Zeitraum</span>
+        <div id="range-buttons" class="chip-row"></div>
+      </div>
+      <label class="control">
+        <span class="control-label">Glättung</span>
+        <select id="smoothing-select" autocomplete="off"></select>
+      </label>
+      <label class="control control-check">
+        <span class="control-label">&nbsp;</span>
+        <span class="check-line"><input type="checkbox" id="dots-toggle"> Einzelumfragen</span>
+      </label>
+    </div>
+    <p id="algo-help" class="algo-help"></p>
+    <div class="control-row">
+      <div class="control control-grow">
+        <span class="control-label">Parteien</span>
+        <div id="party-filter" class="chip-row"></div>
+      </div>
+    </div>
+    <div class="control-row">
+      <div class="control control-grow">
+        <span class="control-label">Institute</span>
+        <div id="institute-filter" class="chip-row"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card chart-card" aria-label="Umfrageverlauf">
+    <div class="chart-wrap">
+      <canvas id="chart"></canvas>
+      <div id="tooltip" class="tooltip" role="status"></div>
+    </div>
+    <p class="chart-note">Punkte = einzelne Umfragen (ggf. korrigiert) · Linien = Trend · Rauten = amtliche Wahlergebnisse · Horizontale Linie = 5-%-Hürde · Gestrichelt = Nichtwähler/Unentschlossene (nur Bund, Forsa; Anteil an allen Wahlberechtigten — andere Basis als die Parteiwerte)</p>
+  </section>
+
+  <section id="bias-wrap" class="card" aria-label="Geschätzte Hauseffekte">
+    <h2>Geschätzte Hauseffekte <span class="unit">(Prozentpunkte; positiv = Institut misst höher als der bereinigte Trend)</span></h2>
+    <div class="table-scroll">
+      <table id="bias-table" class="data-table"></table>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Tabellenansicht">
+    <details>
+      <summary><h2>Tabelle der Umfragen</h2></summary>
+      <p id="poll-table-note" class="unit"></p>
+      <div class="table-scroll">
+        <table id="poll-table" class="data-table"></table>
+      </div>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>
+    <span id="data-stand"></span> ·
+    Datenquelle: <a id="source-link" href="https://www.wahlrecht.de/umfragen/" target="_blank" rel="noopener">wahlrecht.de</a> ·
+    Methodik nach Jackman (2005), <em>Pooling the Polls Over an Election Campaign</em>; Mittelwert-Ansatz analog
+    <a href="https://www.dkriesel.com/sonntagsfrage" target="_blank" rel="noopener">dkriesel.com/sonntagsfrage</a>.
+  </p>
+  <p class="fineprint">Umfragen sind Momentaufnahmen mit Stichprobenfehler (±2–3&nbsp;Prozentpunkte); auch korrigierte Trends sind keine Prognosen.</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -36,11 +36,28 @@ const state = {
   region: 'bund',
   algo: 'iterative',
   range: 'election',
+  lastPreset: 'election', // restored on double-click after a custom zoom
+  from: null,             // ISO dates when range === 'custom'
+  to: null,
   smoothing: '1',
   hiddenParties: new Set(),
   hiddenInstitutes: new Set(),
   showDots: true,
 };
+
+let renderRangesFn = null;
+
+function isoDate(t) {
+  return new Date(t).toISOString().slice(0, 10);
+}
+
+function setCustomRange(t0, t1) {
+  state.range = 'custom';
+  state.from = isoDate(t0);
+  state.to = isoDate(t1);
+  renderRangesFn?.();
+  render();
+}
 
 const regionCache = new Map();
 let index = null;
@@ -56,6 +73,10 @@ function readHash() {
   if (h.get('r')) state.region = h.get('r');
   if (h.get('a')) state.algo = h.get('a');
   if (h.get('t')) state.range = h.get('t');
+  if (h.get('f')) state.from = h.get('f');
+  if (h.get('b')) state.to = h.get('b');
+  if (state.range === 'custom' && !(state.from && state.to)) state.range = 'election';
+  if (state.range !== 'custom') state.lastPreset = state.range;
   if (h.get('s')) state.smoothing = h.get('s');
   if (h.get('hp')) state.hiddenParties = new Set(h.get('hp').split('|').filter(Boolean));
   if (h.get('hi')) state.hiddenInstitutes = new Set(h.get('hi').split('|').filter(Boolean));
@@ -67,6 +88,10 @@ function writeHash() {
   h.set('r', state.region);
   h.set('a', state.algo);
   h.set('t', state.range);
+  if (state.range === 'custom' && state.from && state.to) {
+    h.set('f', state.from);
+    h.set('b', state.to);
+  }
   if (state.smoothing !== '1') h.set('s', state.smoothing);
   if (state.hiddenParties.size) h.set('hp', [...state.hiddenParties].join('|'));
   if (state.hiddenInstitutes.size) h.set('hi', [...state.hiddenInstitutes].join('|'));
@@ -89,7 +114,7 @@ function inkTokens() {
     surface: get('--surface-1'), grid: get('--gridline'), baseline: get('--baseline'),
     muted: get('--text-muted'), text: get('--text-primary'),
     threshold: get('--threshold'), election: get('--election-line'),
-    crosshair: get('--crosshair'),
+    crosshair: get('--crosshair'), accent: get('--accent'),
   };
 }
 
@@ -120,17 +145,23 @@ function computeView() {
   const data = current;
   const now = data.polls.length ? data.polls[data.polls.length - 1].t : Date.now();
 
-  let t0;
-  if (state.range === 'all') {
-    t0 = data.polls.length ? data.polls[0].t : now - 365 * MS_DAY;
-  } else if (state.range === 'election') {
-    const past = data.elections.filter(e => e.t <= now);
-    t0 = past.length ? past[past.length - 1].t : now - 4 * 365 * MS_DAY;
+  let t0, t1;
+  if (state.range === 'custom' && state.from && state.to
+      && Date.parse(state.to) > Date.parse(state.from)) {
+    t0 = Date.parse(state.from);
+    t1 = Date.parse(state.to) + MS_DAY; // inclusive end date
   } else {
-    const years = { '1y': 1, '2y': 2, '5y': 5 }[state.range];
-    t0 = now - years * 365 * MS_DAY;
+    if (state.range === 'all') {
+      t0 = data.polls.length ? data.polls[0].t : now - 365 * MS_DAY;
+    } else if (state.range === 'election') {
+      const past = data.elections.filter(e => e.t <= now);
+      t0 = past.length ? past[past.length - 1].t : now - 4 * 365 * MS_DAY;
+    } else {
+      const years = { '1y': 1, '2y': 2, '5y': 5 }[state.range];
+      t0 = now - years * 365 * MS_DAY;
+    }
+    t1 = now + Math.max(7 * MS_DAY, (now - t0) * 0.01);
   }
-  const t1 = now + Math.max(7 * MS_DAY, (now - t0) * 0.01);
 
   const instAll = new Map();
   for (const p of data.polls) {
@@ -191,12 +222,20 @@ function render() {
     showDots: state.showDots,
   });
   chart.hideTooltip();
+  updateDateInputs(view);
   renderPartyChips(view, m);
   renderInstituteChips(view);
   renderBiasTable(view, m);
   renderPollTable(view, m);
   $('algo-help').textContent = ALGO_HELP[state.algo];
   writeHash();
+}
+
+// Mirror the effective range into the von–bis inputs (skip while typing).
+function updateDateInputs(view) {
+  const from = $('date-from'), to = $('date-to');
+  if (document.activeElement !== from) from.value = isoDate(view.t0);
+  if (document.activeElement !== to) to.value = isoDate(view.t1 - MS_DAY);
 }
 
 // ---------------------------------------------------------------- controls
@@ -374,12 +413,22 @@ function buildStaticControls() {
     for (const [k, label] of RANGES) {
       rr.appendChild(chip(label, state.range === k, () => {
         state.range = k;
+        state.lastPreset = k;
         renderRanges();
         render();
       }));
     }
+    $('date-range').classList.toggle('active', state.range === 'custom');
   };
+  renderRangesFn = renderRanges;
   renderRanges();
+
+  const applyDateInputs = () => {
+    const f = $('date-from').value, b = $('date-to').value;
+    if (f && b && Date.parse(b) > Date.parse(f)) setCustomRange(Date.parse(f), Date.parse(b));
+  };
+  $('date-from').addEventListener('change', applyDateInputs);
+  $('date-to').addEventListener('change', applyDateInputs);
 
   const ss = $('smoothing-select');
   ss.replaceChildren();
@@ -419,6 +468,14 @@ async function main() {
   if (saved) document.documentElement.dataset.theme = saved;
   readHash();
   chart = new PollChart($('chart'), $('tooltip'));
+  chart.onRangeSelect = (t0, t1) => setCustomRange(t0, t1);
+  chart.onRangeReset = () => {
+    if (state.range === 'custom') {
+      state.range = state.lastPreset;
+      renderRangesFn?.();
+      render();
+    }
+  };
   index = await (await fetch('data/index.json')).json();
   if (!index.regions.some(r => r.key === state.region)) state.region = 'bund';
   buildStaticControls();

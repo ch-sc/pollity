@@ -112,6 +112,24 @@ select {
   font: inherit;
 }
 .check-line { display: inline-flex; align-items: center; gap: 6px; padding: 5px 0; color: var(--text-secondary); }
+.date-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+.date-range.active input[type="date"] { border-color: var(--accent); }
+.date-sep { color: var(--text-muted); }
+input[type="date"] {
+  background: var(--surface-1);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 6px;
+  font: inherit;
+  font-size: 12.5px;
+}
 .algo-help {
   margin: 2px 0 10px;
   color: var(--text-secondary);

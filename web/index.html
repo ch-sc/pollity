@@ -28,14 +28,22 @@
         <span class="control-label">Bias-Korrektur</span>
         <select id="algo-select" autocomplete="off"></select>
       </label>
-      <div class="control">
-        <span class="control-label">Zeitraum</span>
-        <div id="range-buttons" class="chip-row"></div>
-      </div>
       <label class="control">
         <span class="control-label">Glättung</span>
         <select id="smoothing-select" autocomplete="off"></select>
       </label>
+      <div class="control">
+        <span class="control-label">Zeitraum</span>
+        <div id="range-buttons" class="chip-row"></div>
+      </div>
+      <div class="control">
+        <span class="control-label">Von – Bis</span>
+        <span id="date-range" class="date-range">
+          <input type="date" id="date-from" autocomplete="off" aria-label="Zeitraum von">
+          <span class="date-sep">–</span>
+          <input type="date" id="date-to" autocomplete="off" aria-label="Zeitraum bis">
+        </span>
+      </div>
       <label class="control control-check">
         <span class="control-label">&nbsp;</span>
         <span class="check-line"><input type="checkbox" id="dots-toggle"> Einzelumfragen</span>
@@ -61,7 +69,7 @@
       <canvas id="chart"></canvas>
       <div id="tooltip" class="tooltip" role="status"></div>
     </div>
-    <p class="chart-note">Punkte = einzelne Umfragen (ggf. korrigiert) · Linien = Trend · Rauten = amtliche Wahlergebnisse · Horizontale Linie = 5-%-Hürde · Gestrichelt = Nichtwähler/Unentschlossene (nur Bund, Forsa; Anteil an allen Wahlberechtigten — andere Basis als die Parteiwerte)</p>
+    <p class="chart-note">Ziehen mit der Maus zoomt in einen Zeitausschnitt, Doppelklick setzt zurück · Punkte = einzelne Umfragen (ggf. korrigiert) · Linien = Trend · Rauten = amtliche Wahlergebnisse · Horizontale Linie = 5-%-Hürde · Gestrichelt = Nichtwähler/Unentschlossene (nur Bund, Forsa; Anteil an allen Wahlberechtigten — andere Basis als die Parteiwerte)</p>
   </section>
 
   <section id="bias-wrap" class="card" aria-label="Geschätzte Hauseffekte">

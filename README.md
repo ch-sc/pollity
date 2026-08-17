@@ -24,7 +24,10 @@ python3 -m http.server 8642 --directory web
 
 - **Level selector**: Bund (Bundestagswahl) or any of the 16 Länder.
 - **Party & institute filters**: click chips to toggle.
-- **Time ranges**: since last election / 1 / 2 / 5 years / all time.
+- **Time ranges**: since last election / 1 / 2 / 5 years / all time — plus a
+  custom range: drag horizontally inside the chart to zoom into a window
+  (Grafana-style; double-click resets to the last preset), or set explicit
+  von–bis dates next to the presets. Custom ranges are shareable via the URL.
 - **Smoothing**: kernel bandwidth control (Fein / Standard / Glatt); the
   bandwidth also adapts to poll density, so sparse state series stay honest.
 - **Bias-correction algorithms** (computed live in the browser):

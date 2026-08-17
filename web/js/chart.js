@@ -23,8 +23,19 @@ export class PollChart {
     this.base = document.createElement('canvas'); // static layers cache
     this.ro = new ResizeObserver(() => { this.dirty = true; this.render(); });
     this.ro.observe(canvas.parentElement);
+    this.dragStart = null;   // px where a range-drag began
+    this.dragX = null;
+    this.dragging = false;
+    this.onRangeSelect = null; // (t0, t1) => void — set by the app
+    this.onRangeReset = null;  // () => void
     canvas.addEventListener('pointermove', e => this.onMove(e));
-    canvas.addEventListener('pointerleave', () => { this.hoverX = null; this.hideTooltip(); this.render(); });
+    canvas.addEventListener('pointerdown', e => this.onDown(e));
+    canvas.addEventListener('pointerup', e => this.onUp(e));
+    canvas.addEventListener('dblclick', () => this.onRangeReset?.());
+    canvas.addEventListener('pointerleave', () => {
+      if (this.dragStart !== null) return; // captured drag continues
+      this.hoverX = null; this.hideTooltip(); this.render();
+    });
   }
 
   /** state: {grid, trend, polls, series:[{party,color}], elections, t0, t1,
@@ -84,7 +95,8 @@ export class PollChart {
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.drawImage(this.base, 0, 0);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (this.hoverX !== null) this.drawCrosshair(ctx, s);
+    if (this.dragging && this.dragX !== null) this.drawSelection(ctx, s);
+    else if (this.hoverX !== null) this.drawCrosshair(ctx, s);
   }
 
   drawAxes(ctx, s, plotW, plotH) {
@@ -254,6 +266,55 @@ export class PollChart {
     }
   }
 
+  drawSelection(ctx, s) {
+    const x0 = Math.min(this.dragStart, this.dragX);
+    const x1 = Math.max(this.dragStart, this.dragX);
+    const yTop = PAD.top, yBot = this.h - PAD.bottom;
+    ctx.fillStyle = s.ink.accent;
+    ctx.globalAlpha = 0.12;
+    ctx.fillRect(x0, yTop, x1 - x0, yBot - yTop);
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = s.ink.accent;
+    ctx.lineWidth = 1;
+    for (const x of [x0, x1]) {
+      ctx.beginPath();
+      ctx.moveTo(Math.round(x) + 0.5, yTop);
+      ctx.lineTo(Math.round(x) + 0.5, yBot);
+      ctx.stroke();
+    }
+  }
+
+  clampPlotX(px) {
+    return Math.max(PAD.left, Math.min(this.w - PAD.right, px));
+  }
+
+  onDown(e) {
+    if (!this.state || e.button !== 0) return;
+    const rect = this.canvas.getBoundingClientRect();
+    const px = e.clientX - rect.left;
+    if (px < PAD.left || px > this.w - PAD.right) return;
+    this.dragStart = px;
+    this.dragX = px;
+    this.dragging = false;
+    this.canvas.setPointerCapture(e.pointerId);
+  }
+
+  onUp(e) {
+    if (this.dragStart === null) return;
+    if (this.canvas.hasPointerCapture(e.pointerId)) this.canvas.releasePointerCapture(e.pointerId);
+    const wasDrag = this.dragging;
+    const a = Math.min(this.dragStart, this.dragX);
+    const b = Math.max(this.dragStart, this.dragX);
+    this.dragStart = null;
+    this.dragX = null;
+    this.dragging = false;
+    if (wasDrag && this.onRangeSelect) {
+      const t0 = this.xToT(a), t1 = this.xToT(b);
+      if (t1 - t0 >= 3 * MS_DAY) { this.onRangeSelect(t0, t1); return; }
+    }
+    this.render();
+  }
+
   drawCrosshair(ctx, s) {
     const x = Math.round(this.hoverX) + 0.5;
     ctx.strokeStyle = s.ink.crosshair;
@@ -265,6 +326,11 @@ export class PollChart {
     if (!this.state) return;
     const rect = this.canvas.getBoundingClientRect();
     const px = e.clientX - rect.left, py = e.clientY - rect.top;
+    if (this.dragStart !== null) {
+      this.dragX = this.clampPlotX(px);
+      if (!this.dragging && Math.abs(this.dragX - this.dragStart) > 4) this.dragging = true;
+      if (this.dragging) { this.hoverX = null; this.hideTooltip(); this.render(); return; }
+    }
     if (px < PAD.left || px > this.w - PAD.right) { this.hoverX = null; this.hideTooltip(); this.render(); return; }
     const s = this.state;
     const t = this.xToT(px);

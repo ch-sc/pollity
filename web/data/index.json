@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-08-19T07:09:35Z",
+ "scraped_at": "2026-08-20T07:10:38Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6145,
+   "polls": 6146,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-08-18",
+   "last_poll": "2026-08-20",
    "last_election": "2025-02-23"
   },
   {
@@ -173,7 +173,7 @@
    "key": "bremen",
    "name": "Bremen",
    "level": "state",
-   "polls": 45,
+   "polls": 46,
    "institutes": [
     "FGW Telefonfeld",
     "Forsa",
@@ -196,7 +196,7 @@
     "BIW/BD"
    ],
    "first_poll": "1999-05-28",
-   "last_poll": "2026-03-19",
+   "last_poll": "2026-08-19",
    "last_election": "2023-05-14"
   },
   {
@@ -370,7 +370,7 @@
    "key": "rheinland-pfalz",
    "name": "Rheinland-Pfalz",
    "level": "state",
-   "polls": 227,
+   "polls": 228,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -394,7 +394,7 @@
     "PIRATEN"
    ],
    "first_poll": "1997-12-11",
-   "last_poll": "2026-03-19",
+   "last_poll": "2026-08-20",
    "last_election": "2026-03-22"
   },
   {

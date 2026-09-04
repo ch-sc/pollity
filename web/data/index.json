@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-09-03T11:21:54Z",
+ "scraped_at": "2026-09-04T11:25:16Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6155,
+   "polls": 6156,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-09-02",
+   "last_poll": "2026-09-03",
    "last_election": "2025-02-23"
   },
   {
@@ -463,7 +463,7 @@
    "key": "sachsen-anhalt",
    "name": "Sachsen-Anhalt",
    "level": "state",
-   "polls": 103,
+   "polls": 104,
    "institutes": [
     "CONOSCOPE",
     "Forsa",
@@ -491,7 +491,7 @@
     "FW"
    ],
    "first_poll": "1998-01-29",
-   "last_poll": "2026-09-02",
+   "last_poll": "2026-09-03",
    "last_election": "2021-06-06"
   },
   {

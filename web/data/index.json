@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-04T11:25:16Z",
+ "scraped_at": "2026-09-05T10:41:47Z",
  "regions": [
   {
    "key": "bund",
@@ -110,7 +110,7 @@
    "key": "berlin",
    "name": "Berlin",
    "level": "state",
-   "polls": 437,
+   "polls": 438,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -132,7 +132,7 @@
     "BSW"
    ],
    "first_poll": "1998-03-19",
-   "last_poll": "2026-09-02",
+   "last_poll": "2026-09-04",
    "last_election": "2023-02-12"
   },
   {

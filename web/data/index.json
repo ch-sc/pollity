@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-09T11:30:44Z",
+ "scraped_at": "2026-09-10T11:27:00Z",
  "regions": [
   {
    "key": "bund",
@@ -277,7 +277,7 @@
    "key": "mecklenburg-vorpommern",
    "name": "Mecklenburg-Vorpommern",
    "level": "state",
-   "polls": 130,
+   "polls": 131,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -299,7 +299,7 @@
     "BSW"
    ],
    "first_poll": "1994-02-20",
-   "last_poll": "2026-09-03",
+   "last_poll": "2026-09-10",
    "last_election": "2021-09-26"
   },
   {

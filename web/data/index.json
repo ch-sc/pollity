@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-10T11:27:00Z",
+ "scraped_at": "2026-09-11T11:28:43Z",
  "regions": [
   {
    "key": "bund",
@@ -110,7 +110,7 @@
    "key": "berlin",
    "name": "Berlin",
    "level": "state",
-   "polls": 438,
+   "polls": 440,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -132,7 +132,7 @@
     "BSW"
    ],
    "first_poll": "1998-03-19",
-   "last_poll": "2026-09-04",
+   "last_poll": "2026-09-11",
    "last_election": "2023-02-12"
   },
   {
@@ -277,7 +277,7 @@
    "key": "mecklenburg-vorpommern",
    "name": "Mecklenburg-Vorpommern",
    "level": "state",
-   "polls": 131,
+   "polls": 134,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -285,7 +285,8 @@
     "Infratest dimap",
     "Marktforschungs- service Dukath",
     "Polis",
-    "Verian (Emnid)"
+    "Verian (Emnid)",
+    "pollytix"
    ],
    "parties": [
     "LINKE",
@@ -299,7 +300,7 @@
     "BSW"
    ],
    "first_poll": "1994-02-20",
-   "last_poll": "2026-09-10",
+   "last_poll": "2026-09-11",
    "last_election": "2021-09-26"
   },
   {

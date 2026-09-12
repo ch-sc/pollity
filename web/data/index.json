@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-11T11:28:43Z",
+ "scraped_at": "2026-09-12T10:53:24Z",
  "regions": [
   {
    "key": "bund",
@@ -307,7 +307,7 @@
    "key": "niedersachsen",
    "name": "Niedersachsen",
    "level": "state",
-   "polls": 130,
+   "polls": 131,
    "institutes": [
     "AMR Düsseldorf",
     "Allensbach",
@@ -331,7 +331,7 @@
     "PIRATEN"
    ],
    "first_poll": "1999-10-28",
-   "last_poll": "2026-04-22",
+   "last_poll": "2026-09-11",
    "last_election": "2022-10-09"
   },
   {

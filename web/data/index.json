@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-09-14T12:56:53Z",
+ "scraped_at": "2026-09-15T11:53:31Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6160,
+   "polls": 6119,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-09-12",
+   "last_poll": "2026-09-15",
    "last_election": "2025-02-23"
   },
   {
@@ -110,7 +110,7 @@
    "key": "berlin",
    "name": "Berlin",
    "level": "state",
-   "polls": 440,
+   "polls": 441,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -132,7 +132,7 @@
     "BSW"
    ],
    "first_poll": "1998-03-19",
-   "last_poll": "2026-09-11",
+   "last_poll": "2026-09-14",
    "last_election": "2023-02-12"
   },
   {

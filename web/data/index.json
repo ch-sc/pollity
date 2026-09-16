@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-09-15T11:53:31Z",
+ "scraped_at": "2026-09-16T11:43:31Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6119,
+   "polls": 6164,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -277,7 +277,7 @@
    "key": "mecklenburg-vorpommern",
    "name": "Mecklenburg-Vorpommern",
    "level": "state",
-   "polls": 134,
+   "polls": 135,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -300,7 +300,7 @@
     "BSW"
    ],
    "first_poll": "1994-02-20",
-   "last_poll": "2026-09-11",
+   "last_poll": "2026-09-16",
    "last_election": "2021-09-26"
   },
   {

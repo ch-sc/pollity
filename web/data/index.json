@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-20T11:31:58Z",
+ "scraped_at": "2026-09-21T12:56:21Z",
  "regions": [
   {
    "key": "bund",
@@ -133,7 +133,7 @@
    ],
    "first_poll": "1998-03-19",
    "last_poll": "2026-09-18",
-   "last_election": "2023-02-12"
+   "last_election": "2026-09-20"
   },
   {
    "key": "brandenburg",
@@ -301,7 +301,7 @@
    ],
    "first_poll": "1994-02-20",
    "last_poll": "2026-09-17",
-   "last_election": "2021-09-26"
+   "last_election": "2026-09-20"
   },
   {
    "key": "niedersachsen",

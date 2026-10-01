@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-09-30T12:43:00Z",
+ "scraped_at": "2026-10-01T13:25:47Z",
  "regions": [
   {
    "key": "bund",
@@ -203,7 +203,7 @@
    "key": "hamburg",
    "name": "Hamburg",
    "level": "state",
-   "polls": 171,
+   "polls": 172,
    "institutes": [
     "AMR Düsseldorf",
     "Forsa",
@@ -236,7 +236,7 @@
     "PIRATEN"
    ],
    "first_poll": "1997-02-22",
-   "last_poll": "2026-06-20",
+   "last_poll": "2026-09-30",
    "last_election": "2025-03-02"
   },
   {

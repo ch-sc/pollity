@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-10-08T13:38:44Z",
+ "scraped_at": "2026-10-09T13:24:33Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6178,
+   "polls": 6179,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -110,7 +110,7 @@
    "key": "berlin",
    "name": "Berlin",
    "level": "state",
-   "polls": 443,
+   "polls": 444,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -118,7 +118,8 @@
     "INSA",
     "Info GmbH",
     "Infratest dimap",
-    "Verian (Emnid)"
+    "Verian (Emnid)",
+    "pollytix"
    ],
    "parties": [
     "CDU",
@@ -132,7 +133,7 @@
     "BSW"
    ],
    "first_poll": "1998-03-19",
-   "last_poll": "2026-09-18",
+   "last_poll": "2026-10-08",
    "last_election": "2026-09-20"
   },
   {

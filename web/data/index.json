@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-10-09T13:24:33Z",
+ "scraped_at": "2026-10-10T12:39:39Z",
  "regions": [
   {
    "key": "bund",
@@ -140,7 +140,7 @@
    "key": "brandenburg",
    "name": "Brandenburg",
    "level": "state",
-   "polls": 147,
+   "polls": 148,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -167,7 +167,7 @@
     "PIRATEN"
    ],
    "first_poll": "1998-04-07",
-   "last_poll": "2026-06-24",
+   "last_poll": "2026-10-09",
    "last_election": "2024-09-22"
   },
   {

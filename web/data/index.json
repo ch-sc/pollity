@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-10-14T12:00:56Z",
+ "scraped_at": "2026-10-15T11:37:37Z",
  "regions": [
   {
    "key": "bund",
@@ -40,7 +40,7 @@
    "key": "baden-wuerttemberg",
    "name": "Baden-Württemberg",
    "level": "state",
-   "polls": 171,
+   "polls": 172,
    "institutes": [
     "Allensbach",
     "Customer Research 42",
@@ -69,7 +69,7 @@
     "AfD"
    ],
    "first_poll": "1995-11-24",
-   "last_poll": "2026-04-10",
+   "last_poll": "2026-10-15",
    "last_election": "2026-03-08"
   },
   {

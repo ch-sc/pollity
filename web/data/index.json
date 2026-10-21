@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-10-20T11:46:34Z",
+ "scraped_at": "2026-10-21T11:58:09Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6186,
+   "polls": 6187,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -76,7 +76,7 @@
    "key": "bayern",
    "name": "Bayern",
    "level": "state",
-   "polls": 288,
+   "polls": 289,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -103,7 +103,7 @@
     "PIRATEN"
    ],
    "first_poll": "1993-02-22",
-   "last_poll": "2026-10-19",
+   "last_poll": "2026-10-20",
    "last_election": "2023-10-08"
   },
   {

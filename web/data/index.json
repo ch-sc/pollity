@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-10-26T13:12:38Z",
+ "scraped_at": "2026-10-27T12:20:36Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6191,
+   "polls": 6192,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-10-24",
+   "last_poll": "2026-10-27",
    "last_election": "2025-02-23"
   },
   {
@@ -244,7 +244,7 @@
    "key": "hessen",
    "name": "Hessen",
    "level": "state",
-   "polls": 133,
+   "polls": 134,
    "institutes": [
     "AMR Düsseldorf",
     "Allensbach",
@@ -271,7 +271,7 @@
     "PIRATEN"
    ],
    "first_poll": "1995-01-30",
-   "last_poll": "2026-04-29",
+   "last_poll": "2026-10-27",
    "last_election": "2023-10-08"
   },
   {

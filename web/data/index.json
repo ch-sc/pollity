@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-03T14:25:13Z",
+ "scraped_at": "2026-11-04T14:40:01Z",
  "regions": [
   {
    "key": "bund",
@@ -403,7 +403,7 @@
    "key": "saarland",
    "name": "Saarland",
    "level": "state",
-   "polls": 74,
+   "polls": 75,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -423,7 +423,7 @@
     "PIRATEN"
    ],
    "first_poll": "1999-01-30",
-   "last_poll": "2025-12-03",
+   "last_poll": "2026-11-04",
    "last_election": "2022-03-27"
   },
   {

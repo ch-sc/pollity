@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-11-05T14:45:02Z",
+ "scraped_at": "2026-11-06T14:22:49Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6196,
+   "polls": 6197,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-11-03",
+   "last_poll": "2026-11-05",
    "last_election": "2025-02-23"
   },
   {

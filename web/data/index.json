@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-11T14:30:12Z",
+ "scraped_at": "2026-11-12T15:22:16Z",
  "regions": [
   {
    "key": "bund",
@@ -430,7 +430,7 @@
    "key": "sachsen",
    "name": "Sachsen",
    "level": "state",
-   "polls": 140,
+   "polls": 141,
    "institutes": [
     "FB Czaplicki",
     "Forsa",
@@ -458,7 +458,7 @@
     "PIRATEN"
    ],
    "first_poll": "1999-01-13",
-   "last_poll": "2026-05-21",
+   "last_poll": "2026-11-11",
    "last_election": "2024-09-01"
   },
   {

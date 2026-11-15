@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-11-14T13:38:31Z",
+ "scraped_at": "2026-11-15T14:01:45Z",
  "regions": [
   {
    "key": "bund",
    "name": "Bund (Bundestagswahl)",
    "level": "federal",
-   "polls": 6202,
+   "polls": 6203,
    "institutes": [
     "Allensbach",
     "Forsa",
@@ -33,7 +33,7 @@
     "Rechte"
    ],
    "first_poll": "1998-01-16",
-   "last_poll": "2026-11-13",
+   "last_poll": "2026-11-14",
    "last_election": "2025-02-23"
   },
   {
@@ -339,7 +339,7 @@
    "key": "nrw",
    "name": "Nordrhein-Westfalen",
    "level": "state",
-   "polls": 279,
+   "polls": 280,
    "institutes": [
     "Forsa",
     "Forschungsgruppe Wahlen",
@@ -365,7 +365,7 @@
     "PIRATEN"
    ],
    "first_poll": "1998-05-28",
-   "last_poll": "2026-10-16",
+   "last_poll": "2026-11-15",
    "last_election": "2022-05-15"
   },
   {
